@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang=”pl”>
+<body onload="calcobjetosc()">
+
+<p><b>Zadanie</b><p>
+<p>Oblicz objętość ostrosłupa o wysokości <span style='color: #b5e61c'>H</span>, gdzie podstawa to kwadrat o przekątnej <span style='color: #b5e61c'>d</span>.</p>
+<p><b>Dane wejściowe</b></p>
+<p><i>H = </i><input id="wysokosc" type="int" oninput="calcobjetosc()" value="5"></p>
+<p><i>d = </i><input id="przekatna" type="int" oninput="calcobjetosc()" value="6"></p>
+<script>
+function calcobjetosc() {
+
+var H = document.getElementById("wysokosc").value;
+var d = document.getElementById("przekatna").value;
+
+document.getElementById("wysokoscText").innerHTML = H;
+document.getElementById("podstawa1Text").innerHTML = d;
+wynik()
+}
+</script>
+<p><b>Rysunek</b></p>
+<svg height="400" width="400">
+  <line x1="20" y1="380" x2="250" y2="380" style="stroke:black;stroke-width:2" />!dolna
+   <line x1="250" y1="380" x2="320" y2="310" style="stroke:black;stroke-width:2" />!prawa
+   <line x1="20" y1="380" x2="120" y2="310" style="stroke:black;stroke-width:2" stroke-dasharray="9"/>!lewa
+   <line x1="120" y1="310" x2="320" y2="310" style="stroke:black;stroke-width:2" stroke-dasharray="9"/>!gorna
+   <line x1="20" y1="380" x2="20" y2="20" style="stroke:black;stroke-width:2"/>!wysokosc
+   <line x1="120" y1="310" x2="20" y2="20" style="stroke:black;stroke-width:2" stroke-dasharray="9"/>!zawysok
+   <line x1="320" y1="310" x2="20" y2="20" style="stroke:black;stroke-width:2"/>
+   <line x1="250" y1="380" x2="20" y2="20" style="stroke:black;stroke-width:2"/>
+      <line x1="120" y1="310" x2="250" y2="380" style="stroke:black;stroke-width:2" stroke-dasharray="9"/>!przekatna
+   <text id="wysokoscText" x="25" y="220" font-size="20" stroke="black">5</text>
+   <text id="podstawa1Text" x="150" y="360" font-size="20" stroke="black">6</text>
+</svg>
+<p><b>Rozwiazanie</b></p>
+
+<script>
+function wynik() {
+
+var H = document.getElementById("wysokosc").value;
+var d = document.getElementById("przekatna").value;
+
+var wynik = (H*((d*d)/2)/3)
+var kwadraciak=d*d
+var prawiewynik=H*d*d
+
+document.getElementById("elo").innerHTML =wynik;
+document.getElementById("elo2").innerHTML =kwadraciak;
+document.getElementById("elo3").innerHTML =prawiewynik;
+document.getElementById("eloh").innerHTML =H;
+document.getElementById("eloh2").innerHTML =H;
+document.getElementById("elod").innerHTML =d;
+}
+</script>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mi>V</mi><mo>=</mo>
+<mfrac><mrow><msup><mi>d</mi><mn>2</mn></msup><mo>&#xB7;</mo><mi>H</mi></mrow><mn>6</mn></mfrac><mo>=</mo>
+<mfrac><mrow><msup><mi><p id="elod">elo</p></mi><mn>2</mn></msup><mo>&#xB7;</mo><mi><p id="eloh">elo</p></mi></mrow><mn>6</mn></mfrac><mo>=</mo>
+<mfrac><mrow><mi><p id="elo2">elo</p></mi><mo>&#xB7;</mo><mi><p id="eloh2">elo</p></mi></mrow><mn>6</mn></mfrac><mo>=</mo>
+<mfrac><mi><p id="elo3">elo</p></mi><mn>6</mn></mfrac><mo>=</mo><mi><p id="elo">elo</p></mi>
+</math>
+</body>
+</html> 
